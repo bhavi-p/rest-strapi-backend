@@ -1,0 +1,20 @@
+{
+  "connection": "default",
+  "collectionName": "logos",
+  "info": {
+    "name": "logo",
+    "description": "Logo image for application"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Images": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    }
+  }
+}

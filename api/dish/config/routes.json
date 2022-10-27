@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/dishes",
-      "handler": "dish.find",
+      "handler": "Dish.find",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/dishes/count",
-      "handler": "dish.count",
+      "handler": "Dish.count",
       "config": {
         "policies": []
       }
@@ -19,7 +19,7 @@
     {
       "method": "GET",
       "path": "/dishes/:id",
-      "handler": "dish.findOne",
+      "handler": "Dish.findOne",
       "config": {
         "policies": []
       }
@@ -27,7 +27,7 @@
     {
       "method": "POST",
       "path": "/dishes",
-      "handler": "dish.create",
+      "handler": "Dish.create",
       "config": {
         "policies": []
       }
@@ -35,7 +35,7 @@
     {
       "method": "PUT",
       "path": "/dishes/:id",
-      "handler": "dish.update",
+      "handler": "Dish.update",
       "config": {
         "policies": []
       }
@@ -43,7 +43,7 @@
     {
       "method": "DELETE",
       "path": "/dishes/:id",
-      "handler": "dish.delete",
+      "handler": "Dish.delete",
       "config": {
         "policies": []
       }

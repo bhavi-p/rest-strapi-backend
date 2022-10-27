@@ -1,35 +1,33 @@
 {
-  "kind": "collectionType",
+  "connection": "default",
   "collectionName": "restaurants",
   "info": {
-    "name": "restaurant"
+    "name": "restaurant",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
   },
   "attributes": {
     "name": {
       "type": "string"
     },
     "description": {
-      "type": "richtext"
+      "type": "text"
     },
     "image": {
-      "collection": "file",
+      "model": "file",
       "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "dishes": {
-      "via": "restaurant",
-      "collection": "dish"
+      "collection": "dish",
+      "via": "restaurant"
     }
   }
 }

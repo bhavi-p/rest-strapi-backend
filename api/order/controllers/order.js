@@ -1,13 +1,13 @@
 "use strict";
-
 /**
  * Order.js controller
  *
  * @description: A set of functions called "actions" for managing `Order`.
  */
-
-const stripe = require("stripe")("sk_test_51Li4KkDLVYbccAO3bi4M3ZwRA8TGvgehJArNFDk4oGxHb7sua9EZnza9NY1nTlgotWCcRECL4plyrby2CRH9TKd100HVRl6ThK");
-
+// note that this needs to be a "private" key from STRIPE
+const stripe = require("stripe")(
+  "sk_test_51Li4KkDLVYbccAO3bi4M3ZwRA8TGvgehJArNFDk4oGxHb7sua9EZnza9NY1nTlgotWCcRECL4plyrby2CRH9TKd100HVRl6ThK"
+);
 module.exports = {
   /**
    * Create a/an order record.
@@ -25,17 +25,17 @@ module.exports = {
       // Transform cents to dollars.
       amount: stripeAmount,
       currency: "usd",
-      description: `Order ${new Date()} by ${ctx.state.user._id}`,
+      description: `Order ${new Date()} by ${ctx.state.user.id}`,
       source: token,
     });
 
     // Register the order in the database
     const order = await strapi.services.order.create({
-      user: ctx.state.user.id,
+      user: ctx.state.user.email,
       charge_id: charge.id,
       amount: stripeAmount,
       address,
-      dishes,
+      dishes: JSON.stringify(dishes),
       city,
       state,
     });

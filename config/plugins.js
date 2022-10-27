@@ -1,22 +1,20 @@
-module.exports = ({ env }) => {
-
-    if(env('NODE_ENV') === 'production'){
-        return {
-            upload: {
-                provider: 'aws-s3',
-                providerOptions: {
-                    accessKeyId: env('AWS_ACCESS_KEY_ID'),
-                    secretAccessKey: env('AWS_ACCESS_SECRET'),
-                    region: env('AWS_REGION'),
-                    params: {
-                        Bucket: env('AWS_BUCKET'),
-                    },
-                },
-            },
-        }
-    }
-
-    return {
-        //Empty config which will use defaults
-    }
-}
+module.exports = {
+  graphql: {
+    endpoint: "/graphql",
+    shadowCRUD: true,
+    playgroundAlways: true,
+    depthLimit: 7,
+    amountLimit: 100,
+    apolloServer: {
+      tracing: false,
+    },
+  },
+  upload: {
+    provider: "cloudinary",
+    providerOptions: {
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    },
+  },
+};

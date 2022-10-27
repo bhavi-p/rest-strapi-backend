@@ -1,13 +1,17 @@
 {
-  "kind": "collectionType",
+  "connection": "default",
   "collectionName": "orders",
   "info": {
-    "name": "order"
+    "name": "order",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
   },
   "attributes": {
     "address": {
@@ -17,10 +21,23 @@
       "type": "string"
     },
     "dishes": {
-      "type": "json"
+      "type": "json",
+      "required": true
     },
     "amount": {
-      "type": "biginteger"
+      "type": "integer"
+    },
+    "token": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "charge_id": {
+      "type": "string"
+    },
+    "user": {
+      "type": "string"
     }
   }
 }
